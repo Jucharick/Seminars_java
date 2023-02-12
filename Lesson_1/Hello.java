@@ -9,7 +9,7 @@ class Hello {
 
         // тип        название переменной 
         LocalDateTime now = LocalDateTime.now ();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.mm.YYYY");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss  dd.MM.YYYY"); // MM - месяц, mm - минуты
         System.out.println(now.toString());
         System.out.println(formatter.format(now));
     }
