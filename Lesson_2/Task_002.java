@@ -26,12 +26,11 @@ public class Task_002 {
         return flag;
     }
     private static boolean isPalindrome2(String str) {
-        boolean isPalindrome = true;
         for (int i = 0; i < str.length()/2; i++) {
             if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
-                isPalindrome = false;
+                return false;
             }
         }
-        return isPalindrome;
+        return true;
     }
 }
