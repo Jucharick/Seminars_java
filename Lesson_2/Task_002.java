@@ -11,10 +11,11 @@ public class Task_002 {
         Scanner reader = new Scanner(System.in);
         System.out.print("Введите строку: ");
         String str = reader.nextLine();
-        reader.close();
         
         System.out.println(isPalindrome(str));
         System.out.println(isPalindrome2(str));
+
+        reader.close();
     }
     private static boolean isPalindrome(String str) {
         boolean flag = false;
