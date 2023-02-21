@@ -5,6 +5,8 @@ package Lesson_4;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Task_004 {
@@ -18,16 +20,25 @@ public class Task_004 {
         }
 
         System.out.println(inputList);
-        getArray(inputList);
+        getArrayDeque(inputList);
+        getQueue(inputList);
 
         reader.close();
     }
 
-    private static void getArray (ArrayList<String> array){
+    private static void getArrayDeque (ArrayList<String> array){
         ArrayDeque<String> deque = new ArrayDeque<>();
         for (int i = 0; i < array.size(); i++) {
-            deque.addFirst(array.get(i));
+            deque.push(array.get(i));
         }
         System.out.println(deque);
+    }
+
+    private static void getQueue (ArrayList<String> array){
+        Queue<String> queue = new LinkedList<>();
+        for (int i = 0; i < array.size(); i++) {
+            queue.add(array.get(i));
+        }
+        System.out.println(queue);
     }
 }
