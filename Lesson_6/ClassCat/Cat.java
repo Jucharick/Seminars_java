@@ -50,11 +50,67 @@ public class Cat {
     @Override
     public String toString() {
         return "Cat [name=" + name + ", owner=" + owner + ", breed=" + breed + ", dateBirth=" + dateBirth + ", color="
-                + color + ", vaccinations=" + vaccinations + "]";
+                + color + ", vaccinations=" + vaccinations + "]\n";
     }
 
     public void addVaccination(Vaccination vaccination) {
         vaccinations.add(vaccination);
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((owner == null) ? 0 : owner.hashCode());
+        result = prime * result + ((breed == null) ? 0 : breed.hashCode());
+        result = prime * result + ((dateBirth == null) ? 0 : dateBirth.hashCode());
+        result = prime * result + ((color == null) ? 0 : color.hashCode());
+        result = prime * result + ((vaccinations == null) ? 0 : vaccinations.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Cat other = (Cat) obj;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        if (owner == null) {
+            if (other.owner != null)
+                return false;
+        } else if (!owner.equals(other.owner))
+            return false;
+        if (breed == null) {
+            if (other.breed != null)
+                return false;
+        } else if (!breed.equals(other.breed))
+            return false;
+        if (dateBirth == null) {
+            if (other.dateBirth != null)
+                return false;
+        } else if (!dateBirth.equals(other.dateBirth))
+            return false;
+        if (color == null) {
+            if (other.color != null)
+                return false;
+        } else if (!color.equals(other.color))
+            return false;
+        if (vaccinations == null) {
+            if (other.vaccinations != null)
+                return false;
+        } else if (!vaccinations.equals(other.vaccinations))
+            return false;
+        return true;
+    }
+
+    
 }
