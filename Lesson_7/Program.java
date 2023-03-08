@@ -15,6 +15,7 @@ import Lesson_7.Units.Peasant;
 import Lesson_7.Units.Priest;
 import Lesson_7.Units.Robber;
 import Lesson_7.Units.Sniper;
+import Lesson_7.Units.Spearman;
 
 public class Program {
     public static void main(String[] args) {
@@ -22,11 +23,12 @@ public class Program {
  
         Sniper sniper = new Sniper();
         Crossbowman xBowMan = new Crossbowman();
+        Spearman spearman = new Spearman();
         Magician magician = new Magician();
         Priest priest = new Priest();
         Peasant peasant = new Peasant();
         Robber robber = new Robber();
- 
+        
         
     }
 }
