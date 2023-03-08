@@ -46,5 +46,20 @@ public class Program {
         System.out.println("Hero_3: " + spearman.toString());
         System.out.println("Hero_1: " + sniper.toString());
 
+        magician.MagAttack(magician, spearman);
+        System.out.println("Hero_3: " + spearman.toString());
+        System.out.println("Hero_4: " + magician.toString());
+
+        magician.MagAttack(magician, spearman);
+        System.out.println("Hero_3: " + spearman.toString());
+        System.out.println("Hero_4: " + magician.toString());
+
+        spearman.ShooterAttack(spearman, magician);
+        System.out.println("Hero_3: " + spearman.toString());
+        System.out.println("Hero_4: " + magician.toString());
+
+        spearman.ShooterAttack(spearman, magician);
+        System.out.println("Hero_3: " + spearman.toString());
+        System.out.println("Hero_4: " + magician.toString());
     }
 }

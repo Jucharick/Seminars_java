@@ -12,4 +12,11 @@ public class BaseHero {
         this.damage = damage;
     }
 
+    public void GetDamage(int damage) {
+        if (this.hp - damage > 0) {
+            this.hp -= damage;
+        }
+        // else { die(); }
+    }
+
 }

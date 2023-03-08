@@ -3,7 +3,6 @@ package Lesson_7.Units;
 
 import java.util.Random;
 
-
 public class ShooterClass extends BaseHero{
     protected int arrows;
     protected static Random r;
@@ -23,20 +22,13 @@ public class ShooterClass extends BaseHero{
                             this.getClass().getSimpleName(), this.hp, this.speed, this.damage, this.arrows);
     }
 
-    public void GetDamage(int damage) {
-        if (this.hp - damage > 0) {
-            this.hp -= damage;
-        }
-        // else { die(); }
-    }
-
     public void LossArrows(int arrows) {
         if (this.arrows - 1 > 0) {
             this.arrows -= 1;
         }
     }
 
-    public void ShooterAttack(ShooterClass attackUnit, ShooterClass unit) {
+    public void ShooterAttack(ShooterClass attackUnit, BaseHero unit) {
         System.out.printf("%s атакует %s\n", attackUnit.getClass().getSimpleName(), unit.getClass().getSimpleName());
         attackUnit.LossArrows(arrows);
         if (arrows != 0){
