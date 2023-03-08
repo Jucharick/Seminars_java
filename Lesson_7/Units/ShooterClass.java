@@ -31,17 +31,21 @@ public class ShooterClass extends BaseHero{
     }
 
     public void LossArrows(int arrows) {
-        if (this.arrows - arrows > 0) {
-            this.arrows -= arrows;
+        if (this.arrows - 1 > 0) {
+            this.arrows -= 1;
         }
     }
 
-    public void ShooterAttack(ShooterClass target) {
-        // как обратиться к герою, который наносит урон?
+    public void ShooterAttack(ShooterClass attackUnit, ShooterClass unit) {
+        System.out.printf("%s атакует %s\n", attackUnit.getClass().getSimpleName(), unit.getClass().getSimpleName());
+        attackUnit.LossArrows(arrows);
         if (arrows != 0){
             damage = ShooterClass.r.nextInt(2, 6);
-            target.GetDamage(damage);
-            System.out.printf("%s теряет %d hp\n", target.getClass().getSimpleName(), damage);
+            unit.GetDamage(damage);
+            System.out.printf("%s теряет %d hp\n", unit.getClass().getSimpleName(), damage);
+        }
+        else {
+            System.out.println("Урон не нанесен");
         }
     }
 }

@@ -20,7 +20,6 @@ import Lesson_7.Units.Robber;
 public class Program {
     public static void main(String[] args) {
 
- 
         Sniper sniper = new Sniper();
         Crossbowman xBowMan = new Crossbowman();
         Spearman spearman = new Spearman();
@@ -39,13 +38,13 @@ public class Program {
         System.out.println("Hero_6: " + peasant.toString());
         System.out.println("Hero_7: " + robber.toString());
 
-        sniper.ShooterAttack(spearman);
+        sniper.ShooterAttack(sniper, spearman);
         System.out.println("Hero_3: " + spearman.toString());
-        sniper.ShooterAttack(spearman);
-        System.out.println("Hero_3: " + spearman.toString());
-        sniper.ShooterAttack(spearman);
-        System.out.println("Hero_3: " + spearman.toString());
+        System.out.println("Hero_1: " + sniper.toString());
 
+        sniper.ShooterAttack(sniper, spearman);
+        System.out.println("Hero_3: " + spearman.toString());
+        System.out.println("Hero_1: " + sniper.toString());
 
     }
 }
