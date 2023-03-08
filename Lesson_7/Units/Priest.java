@@ -1,18 +1,9 @@
 package Lesson_7.Units;
  
-public class Priest extends BaseHero {
-
-    private int elixir;
-    private int maxElixir;
+public class Priest extends MagClass{
 
     public Priest() {
-        super(String.format("Hero_Priest #%d", ++Magician.number),
-                Magician.r.nextInt(100, 200));
-        this.maxElixir = Magician.r.nextInt(50, 150);
-        this.elixir = maxElixir;
+        super(30, 3, 15, 50, 10);
     }
     
-    public String getInfo() {
-        return String.format("%s  Elixir: %d", super.getInfo(), this.elixir);
-    }
 }
