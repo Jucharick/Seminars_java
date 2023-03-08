@@ -11,7 +11,9 @@ package Lesson_7;
 
 import Lesson_7.Units.Crossbowman;
 import Lesson_7.Units.Magician;
+import Lesson_7.Units.Peasant;
 import Lesson_7.Units.Priest;
+import Lesson_7.Units.Robber;
 import Lesson_7.Units.Sniper;
 
 public class Program {
@@ -20,7 +22,10 @@ public class Program {
  
         Sniper sniper = new Sniper();
         Crossbowman xBowMan = new Crossbowman();
-        
+        Magician magician = new Magician();
+        Priest priest = new Priest();
+        Peasant peasant = new Peasant();
+        Robber robber = new Robber();
  
         
     }
