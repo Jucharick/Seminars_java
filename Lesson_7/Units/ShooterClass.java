@@ -37,6 +37,7 @@ public class ShooterClass extends BaseHero{
     }
 
     public void ShooterAttack(ShooterClass target) {
+        // как обратиться к герою, который наносит урон?
         if (arrows != 0){
             damage = ShooterClass.r.nextInt(2, 6);
             target.GetDamage(damage);
