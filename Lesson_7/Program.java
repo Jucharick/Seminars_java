@@ -39,5 +39,13 @@ public class Program {
         System.out.println("Hero_6: " + peasant.toString());
         System.out.println("Hero_7: " + robber.toString());
 
+        sniper.ShooterAttack(spearman);
+        System.out.println("Hero_3: " + spearman.toString());
+        sniper.ShooterAttack(spearman);
+        System.out.println("Hero_3: " + spearman.toString());
+        sniper.ShooterAttack(spearman);
+        System.out.println("Hero_3: " + spearman.toString());
+
+
     }
 }
