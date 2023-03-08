@@ -1,6 +1,6 @@
 package Lesson_7.Units;
  
-public class Magician extends BaseHero {
+public class Magician extends MagClass {
 
     private int mana;
     private int maxMana;

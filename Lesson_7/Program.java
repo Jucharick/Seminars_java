@@ -7,11 +7,15 @@
 // Арбалетчик - Crossbowman
 // Жрец - Priest
 
-package Lesson_7.Units;
+package Lesson_7;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import Lesson_7.Units.BaseHero;
+import Lesson_7.Units.Magician;
+import Lesson_7.Units.Priest;
 
 public class Program {
     public static void main(String[] args) {

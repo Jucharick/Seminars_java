@@ -1,6 +1,6 @@
 package Lesson_7.Units;
 
-public class SniperHero extends BaseHero {
+public class SniperHero extends ShooterClass {
     private int ammo;
     private int maxAmmo;
 
