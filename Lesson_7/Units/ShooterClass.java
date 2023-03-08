@@ -7,4 +7,11 @@ public class ShooterClass extends BaseHero{
         super(hp, speed, damage);
         this.arrows = arrows;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Type: %s  Hp: %f  Speed: %d  Damage: %d  Arrows: %d",
+                            this.getClass().getSimpleName(), this.hp, this.speed, this.damage, this.arrows);
+    }
+    
 }

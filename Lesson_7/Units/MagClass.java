@@ -9,5 +9,11 @@ public class MagClass extends BaseHero{
         this.mana = mana;
         this.elixir = elixir;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Type: %s  Hp: %f  Speed: %d  Damage: %d  Mana: %d  Elixir: %d",
+                            this.getClass().getSimpleName(), this.hp, this.speed, this.damage, this.mana, this.elixir);
+    }
     
 }

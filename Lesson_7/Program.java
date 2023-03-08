@@ -1,4 +1,4 @@
-// Крестьянин, Разбойник, Снайпер, Колдун, Копейщик, Арбалетчик, монах
+// Крестьянин, Разбойник, Снайпер, Колдун, Копейщик, Арбалетчик, Жрец
 // Крестьянин - Peasant
 // Разбойник - Robber
 // Снайпер - Sniper
@@ -9,13 +9,13 @@
 
 package Lesson_7;
 
-import Lesson_7.Units.Crossbowman;
-import Lesson_7.Units.Magician;
-import Lesson_7.Units.Peasant;
-import Lesson_7.Units.Priest;
-import Lesson_7.Units.Robber;
 import Lesson_7.Units.Sniper;
+import Lesson_7.Units.Crossbowman;
 import Lesson_7.Units.Spearman;
+import Lesson_7.Units.Magician;
+import Lesson_7.Units.Priest;
+import Lesson_7.Units.Peasant;
+import Lesson_7.Units.Robber;
 
 public class Program {
     public static void main(String[] args) {
@@ -29,6 +29,15 @@ public class Program {
         Peasant peasant = new Peasant();
         Robber robber = new Robber();
         
-        
+        System.out.println("Hero_1: " + sniper.toString());
+        System.out.println("Hero_2: " + xBowMan.toString());
+        System.out.println("Hero_3: " + spearman.toString());
+
+        System.out.println("Hero_4: " + magician.toString());
+        System.out.println("Hero_5: " + priest.toString());
+
+        System.out.println("Hero_6: " + peasant.toString());
+        System.out.println("Hero_7: " + robber.toString());
+
     }
 }
