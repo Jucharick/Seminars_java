@@ -3,7 +3,7 @@ package Lesson_8.Units;
 
 import java.util.Random;
 
-public class ShooterClass extends BaseHero{
+public abstract class ShooterClass extends BaseHero{
     protected int arrows;
     protected static Random r;
 

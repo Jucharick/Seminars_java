@@ -2,7 +2,7 @@ package Lesson_8.Units;
 
 import java.util.Random;
 
-public class MagClass extends BaseHero{
+public abstract class MagClass extends BaseHero{
     protected int mana;
     protected int elixir;
     protected static Random r;

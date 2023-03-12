@@ -1,6 +1,6 @@
 package Lesson_8.Units;
 
-public class ManClass extends BaseHero {
+public abstract class ManClass extends BaseHero {
     protected int poisons;
     protected int dexterity;
 
