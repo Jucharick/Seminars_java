@@ -86,23 +86,23 @@ public class Program {
 
         units1.forEach(u -> u.step(units1, units2));
 
-        // allTeam.sort(new Comparator<BaseHero>() {
-        //     @Override
-        //     public int compare (BaseHero u1, BaseHero u2) {
-        //         if (u1.getSpeed() == u2.getSpeed()){
-        //             return 0;
-        //         }
-        //         else if (u1.getSpeed() > u2.getSpeed()){
-        //             return -1; // нам надо сделать сортировку по убыванию, меняю местами знаки
-        //         }
-        //         else 
-        //             return 1;
-        //     }
-        // });
+        allTeam.sort(new Comparator<BaseHero>() {
+            @Override
+            public int compare (BaseHero u1, BaseHero u2) {
+                if (u1.getSpeed() == u2.getSpeed()){
+                    return 0;
+                }
+                else if (u1.getSpeed() > u2.getSpeed()){
+                    return -1; // нам надо сделать сортировку по убыванию, меняю местами знаки
+                }
+                else 
+                    return 1;
+            }
+        });
 
-        // for (BaseHero bH: allTeam) {
-        //     bH.getInfo();
-        // }
+        for (BaseHero bH: allTeam) {
+            bH.getInfo();
+        }
 
     }
 
