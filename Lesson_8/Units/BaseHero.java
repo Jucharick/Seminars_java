@@ -1,6 +1,6 @@
 package Lesson_8.Units;
 
-public class BaseHero {
+public abstract class BaseHero  implements Unitinterface{
     
     protected float hp; // protected видно только в пакете Units
     protected int speed;
@@ -19,4 +19,9 @@ public class BaseHero {
         // else { die(); }
     }
 
+    @Override // аннотация - означает, что метод объявлен где-то выше
+    public void step() {
+        System.out.println("Шаг");
+    }
+   
 }

@@ -6,4 +6,8 @@ public class Spearman extends ShooterClass{
         super(40, 6, 6, 35);
     }
 
+    @Override
+    public void step() {
+        System.out.println("Копейщик бросил копьё!");
+    }
 }

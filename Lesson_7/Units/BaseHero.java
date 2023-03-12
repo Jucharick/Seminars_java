@@ -19,4 +19,8 @@ public class BaseHero {
         // else { die(); }
     }
 
+    public Object step() {
+        return null;
+    }
+
 }
