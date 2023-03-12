@@ -11,17 +11,10 @@ public abstract class MagClass extends BaseHero{
         MagClass.r = new Random();
     }
 
-    public MagClass(float hp, int speed, int damage, int mana, int elixir, String name) {
+    public MagClass(int hp, int speed, int damage, int mana, int elixir, String name) {
         super(hp, speed, damage, name);
         this.mana = mana;
         this.elixir = elixir;
     }
 
-    
-    @Override
-    public void getInfo() {
-        System.out.printf("Type: %s  Hp: %f  Speed: %d  Damage: %d  Mana: %d  Elixir: %d \n",
-                         this.getClass().getSimpleName(), this.hp, this.speed, this.damage, this.mana, this.elixir);
-    }
-    
 }

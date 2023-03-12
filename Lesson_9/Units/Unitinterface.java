@@ -5,6 +5,7 @@ import java.util.ArrayList;
 // в java 7 не предполагаются модификаторы видимости, все интерфейсы публичные
 
 public interface Unitinterface {
-    void step(ArrayList<BaseHero> team);
+    void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2);
     void getInfo();
+    String toString();
 }

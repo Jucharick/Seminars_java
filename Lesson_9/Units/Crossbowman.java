@@ -1,7 +1,5 @@
 package Lesson_9.Units;
 
-import java.util.ArrayList;
-
 public class Crossbowman extends ShooterClass{
      
     public Crossbowman (String name) {
@@ -9,7 +7,14 @@ public class Crossbowman extends ShooterClass{
     }
 
     @Override
-    public void step(ArrayList<BaseHero> team) {
-        System.out.println("Арбалетчик выстрелил!");
+    public void getInfo() {
+        System.out.printf("Crossbowman Hero  Hp: %d  Speed: %d  Damage: %d  Arrows: %d \n",
+                        this.hp, this.speed, this.damage, this.arrows);
     }
+
+    @Override
+    public String toString() {
+        return "Crossbowman";
+    }
+
 }
