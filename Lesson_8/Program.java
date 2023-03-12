@@ -10,67 +10,90 @@
 package Lesson_8;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-import Lesson_8.Units.Sniper;
-import Lesson_8.Units.BaseHero;
-import Lesson_8.Units.Crossbowman;
-import Lesson_8.Units.Spearman;
-import Lesson_8.Units.Magician;
-import Lesson_8.Units.Priest;
-import Lesson_8.Units.Peasant;
-import Lesson_8.Units.Robber;
+import Lesson_8.Units.*;
 
 public class Program {
     public static void main(String[] args) {
+        // классы загружаются в память (в специальную область памяти и там просто лежат, занимают место) и потом используются для того, чтобы посчитать 
+        // сколько памяти нужно для объектов, собранных из этих классов
+        // static - публичный класс загружает виртуальная машина java и она не создает объект на базе класса Program, а она из класса Program 
+        // сразу вызывает метод main, и чтобы виртуальная машина java смогла его вызвать он должен быть статичным - это значит,
+        // что при загрузки этого метода адресс метода main сразу генерируется. И все методы, которые мы вызываем прям из класса, тоже должны быть 
+        // статичными и адрес сразу был.
 
-        Sniper sniper = new Sniper();
-        Crossbowman xBowMan = new Crossbowman();
-        Spearman spearman = new Spearman();
-        Magician magician = new Magician();
-        Priest priest = new Priest();
-        Peasant peasant = new Peasant();
-        Robber robber = new Robber();
-        
-        // System.out.println("Hero_1: " + sniper.toString());
-        // System.out.println("Hero_2: " + xBowMan.toString());
-        // System.out.println("Hero_3: " + spearman.toString());
+        // если убрать static, то надо сначала создать объект класса
 
-        // System.out.println("Hero_4: " + magician.toString());
-        // System.out.println("Hero_5: " + priest.toString());
+        ArrayList<BaseHero> units1 = new ArrayList<>();
+        ArrayList<BaseHero> units2 = new ArrayList<>();
 
-        // System.out.println("Hero_6: " + peasant.toString());
-        // System.out.println("Hero_7: " + robber.toString());
+        for (int i = 0; i < 10; i++) {
+            switch(new Random().nextInt(7)) {
+                case 0:
+                    units1.add(new Crossbowman(getName()));
+                    break;
+                case 1:
+                    units1.add(new Magician(getName()));
+                    break;
+                case 2:
+                    units1.add(new Peasant(getName()));
+                    break;
+                case 3:
+                    units1.add(new Priest(getName()));
+                    break;
+                case 4:
+                    units1.add(new Robber(getName()));
+                    break;
+                case 5:
+                    units1.add(new Sniper(getName()));
+                    break;
+                case 6:
+                    units1.add(new Spearman(getName()));
+                    break;
+            }
+            switch(new Random().nextInt(7)) {
+                case 0:
+                    units2.add(new Crossbowman(getName()));
+                    break;
+                case 1:
+                    units2.add(new Magician(getName()));
+                    break;
+                case 2:
+                    units2.add(new Peasant(getName()));
+                    break;
+                case 3:
+                    units2.add(new Priest(getName()));
+                    break;
+                case 4:
+                    units2.add(new Robber(getName()));
+                    break;
+                case 5:
+                    units2.add(new Sniper(getName()));
+                    break;
+                case 6:
+                    units2.add(new Spearman(getName()));
+                    break;
+            }
+        }
 
-        // sniper.ShooterAttack(sniper, spearman);
-        // System.out.println("Hero_3: " + spearman.toString());
-        // System.out.println("Hero_1: " + sniper.toString());
+        System.out.println("Team 1");
+        for (BaseHero bH: units1) {
+            bH.getNAME();
+            bH.getInfo();
+            bH.step();
+        }
 
-        // sniper.ShooterAttack(sniper, spearman);
-        // System.out.println("Hero_3: " + spearman.toString());
-        // System.out.println("Hero_1: " + sniper.toString());
+        System.out.println();
 
-        // magician.MagAttack(magician, spearman);
-        // System.out.println("Hero_3: " + spearman.toString());
-        // System.out.println("Hero_4: " + magician.toString());
+        System.out.println("Team 2");
+        for (BaseHero bH: units2) {
+            bH.getNAME();
+            bH.getInfo();
+        }
+    }
 
-        // magician.MagAttack(magician, spearman);
-        // System.out.println("Hero_3: " + spearman.toString());
-        // System.out.println("Hero_4: " + magician.toString());
-
-        // spearman.ShooterAttack(spearman, magician);
-        // System.out.println("Hero_3: " + spearman.toString());
-        // System.out.println("Hero_4: " + magician.toString());
-
-        // spearman.ShooterAttack(spearman, magician);
-        // System.out.println("Hero_3: " + spearman.toString());
-        // System.out.println("Hero_4: " + magician.toString());
-
-        ArrayList<BaseHero> list = new ArrayList<>();
-        list.add(new Crossbowman());
-        list.add(new Priest());
-        list.add(new Peasant());
-        list.add(new Sniper());
-
-        list.forEach(b -> b.step());
+    private static String getName(){
+        return Names.values()[new Random().nextInt(Names.values().length)].toString(); // Names.values() возвращает массив имен
     }
 }

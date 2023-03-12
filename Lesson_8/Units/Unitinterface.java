@@ -4,4 +4,5 @@ package Lesson_8.Units;
 
 public interface Unitinterface {
     void step();
+    void getInfo();
 }
