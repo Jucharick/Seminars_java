@@ -10,6 +10,7 @@
 package Lesson_9;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 import Lesson_9.Units.*;
@@ -77,20 +78,32 @@ public class Program {
             }
         }
 
-        System.out.println("Team 1");
-        for (BaseHero bH: units1) {
-            bH.getNAME();
+        // Имя - это хэш. У двух объектов не может быть одинакового имени.
+
+        ArrayList<BaseHero> allTeam = new ArrayList<>();
+        allTeam.addAll(units1);
+        allTeam.addAll(units2);     
+
+        units1.forEach(u -> u.step(units2));
+
+        allTeam.sort(new Comparator<BaseHero>() {
+            @Override
+            public int compare (BaseHero u1, BaseHero u2) {
+                if (u1.getSpeed() == u2.getSpeed()){
+                    return 0;
+                }
+                else if (u1.getSpeed() > u2.getSpeed()){
+                    return 1;
+                }
+                else 
+                    return -1;
+            }
+        });
+
+        for (BaseHero bH: allTeam) {
             bH.getInfo();
-            bH.step();
         }
 
-        System.out.println();
-
-        System.out.println("Team 2");
-        for (BaseHero bH: units2) {
-            bH.getNAME();
-            bH.getInfo();
-        }
     }
 
     private static String getName(){

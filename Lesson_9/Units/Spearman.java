@@ -1,5 +1,7 @@
 package Lesson_9.Units;
 
+import java.util.ArrayList;
+
 public class Spearman extends ShooterClass{
 
     public Spearman(String name) {
@@ -7,7 +9,7 @@ public class Spearman extends ShooterClass{
     }
 
     @Override
-    public void step() {
+    public void step(ArrayList<BaseHero> team) {
         System.out.println("Копейщик бросил копьё!");
     }
 }

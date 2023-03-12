@@ -1,5 +1,7 @@
 package Lesson_9.Units;
 
+import java.util.ArrayList;
+
 public abstract class BaseHero  implements Unitinterface{ // собирается для всех объектов
     
     protected float hp; // protected видно только в пакете Units
@@ -19,14 +21,8 @@ public abstract class BaseHero  implements Unitinterface{ // собираетс�
         NAME = name;
     }
 
-    // public void GetDamage(int damage) {
-    //     if (this.hp - damage > 0) {
-    //         this.hp -= damage;
-    //     }
-    // }
-
     @Override // аннотация - означает, что метод объявлен где-то выше
-    public void step() {
+    public void step(ArrayList<BaseHero> team) {
         System.out.println("Шаг");
     }
 
@@ -36,5 +32,9 @@ public abstract class BaseHero  implements Unitinterface{ // собираетс�
                          this.getClass().getSimpleName(), this.hp, this.speed, this.damage);
     }
    // this.getClass().getSimpleName() - очень медлено
+
+    public int getSpeed() {
+        return speed;
+    }
    
 }
