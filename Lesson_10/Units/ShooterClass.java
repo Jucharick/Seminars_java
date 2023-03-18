@@ -1,6 +1,7 @@
 package Lesson_10.Units;
 
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,7 +24,7 @@ public abstract class ShooterClass extends BaseHero {
         if (this.arrows!= 0 && this.hp > 0){
             System.out.printf("%s can shot! ", this.toString());
 
-            damage = ShooterClass.r.nextInt(2, 11);
+            damage = ShooterClass.r.nextInt(14, 20);
             BaseHero nearestUnit = minDistance(team);
                 
             if (nearestUnit.hp > 0 && !nearestUnit.state.equals("die")) {
