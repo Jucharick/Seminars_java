@@ -88,10 +88,12 @@ public class Program {
         // Имя - это хэш. У двух объектов не может быть одинакового имени.  
 
         // units1.forEach(u -> u.step(units2));
-        System.out.println("Team 1");
-        units1.forEach(u -> u.getInfo());
-        System.out.println("Team 2");
-        units2.forEach(u -> u.getInfo());
+        // System.out.println("Team 1");
+        // units1.forEach(u -> u.getInfo());
+        // System.out.println("Team 2");
+        // units2.forEach(u -> u.getInfo());
+
+        units1.forEach(u -> u.step(units2));
 
     }
 

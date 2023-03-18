@@ -30,7 +30,7 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
     }
 
     @Override // @Override - аннотация
-    public void step(ArrayList<BaseHero> team ) {
+    public void step(ArrayList<BaseHero> team) {
         System.out.println("Шаг!");// заглушка
     }
 
@@ -40,16 +40,30 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
     }
 
     @Override
-    public String toString() {
+        public String toString() {
         return "";
     }
-   
-   public void loseDamage(float damage) {
+
+    public BaseHero minDistance (ArrayList<BaseHero> team){
+        BaseHero nearestUnit = team.get(0);
+        double minDist = position.getDistance(team.get(0));
+        for (BaseHero unit : team) {
+            double dist = position.getDistance(unit);
+            if (dist < minDist) {
+                nearestUnit = unit;
+                minDist = dist;
+            }
+        }
+        return nearestUnit;
+    }
+       
+    public void loseDamage(float damage) {
         if (this.hp - damage >= 0) {
             this.hp -= damage;
         }
         else {
             this.hp = 0;
+            this.state = "die";
         }
     }
 
