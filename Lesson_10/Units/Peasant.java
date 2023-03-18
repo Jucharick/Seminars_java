@@ -8,7 +8,7 @@ public class Peasant extends ManClass {
 
     @Override
     public void getInfo() {
-        System.out.printf("Peasant Hero  Hp: %d  Speed: %d  Damage: %d  Poisons: %d  Dexterity: %d \n",
+        System.out.printf("Peasant Hero  Hp: %d  Speed: %d  Damage: %f  Poisons: %d  Dexterity: %d \n",
                          this.hp, this.speed, this.damage, this.poisons, this.dexterity);
     }
 
@@ -16,5 +16,5 @@ public class Peasant extends ManClass {
     public String toString() {
         return "Peasant";
     }
-    
+
 }

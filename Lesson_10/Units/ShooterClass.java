@@ -12,7 +12,7 @@ public abstract class ShooterClass extends BaseHero{
         ShooterClass.r = new Random();
     }
 
-    public ShooterClass(int hp, int speed, int damage, int arrows, String name) {
+    public ShooterClass(int hp, int speed, float damage, int arrows, String name) {
         super(hp, speed, damage, name);
         this.arrows = arrows;
     }
@@ -33,28 +33,9 @@ public abstract class ShooterClass extends BaseHero{
     }
 
     @Override
-    public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2) {
-        if (this.arrows > 0 && this.hp > 0) {
-            System.out.printf("%s могу атаковать!  ", this.toString());
-            for (BaseHero unit: team2) {
-                if (unit.hp > 0) {
-                    System.out.printf("%s атакует %s.  ", this.toString(), unit.toString());
-                    this.attack(unit);
-                    this.getInfo();
-                    this.arrows--;
-                    this.getInfo();
-                    break;
-                }
-            }
-        }
-        for (BaseHero unit: team1) {
-            if (unit.toString().equals("Peasant")) {
-                this.getInfo();
-                this.arrows++;
-                this.getInfo();
-                break;
-            }
-        }
+    public void step(ArrayList<BaseHero> team) {
+        if (!state.equals("Die") && arrows == 0) return;
+        // выстрел
     }
 
 }

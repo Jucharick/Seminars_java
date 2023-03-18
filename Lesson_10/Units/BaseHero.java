@@ -6,27 +6,29 @@ public abstract class BaseHero  implements Unitinterface{ // собираетс�
     
     protected int hp; // protected видно только в пакете Units
     protected int speed;
-    protected int damage;
+    protected float damage;
     protected final String NAME; // константа, final - один раз ее установив изменить нельзя, она не изменяема
                                  // если поставить static, то имя у всех было бы одно
+    protected String state;
 
     public void getNAME(){
         System.out.println(NAME);
     }
 
-    public BaseHero(int hp, int speed, int damage, String name) {
+    public BaseHero(int hp, int speed, float damage, String name) {
         this.hp = hp;
         this.speed = speed;
         this.damage = damage;
         NAME = name;
+        state = "Stand"; // стоит, ничего не делает
     }
 
     public int getSpeed() {
         return speed;
     }
 
-    @Override // аннотация - означает, что метод объявлен где-то выше
-    public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2) {
+    @Override // @Override - аннотация
+    public void step(ArrayList<BaseHero> team ) {
         System.out.println("Шаг!");// заглушка
     }
 
@@ -40,7 +42,7 @@ public abstract class BaseHero  implements Unitinterface{ // собираетс�
         return "";
     }
    
-   public void loseDamage(int damage) {
+   public void loseDamage(float damage) {
         if (this.hp - damage >= 0) {
             this.hp -= damage;
         }

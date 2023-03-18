@@ -8,7 +8,7 @@ public class Robber extends ManClass {
 
     @Override
     public void getInfo() {
-        System.out.printf("Robber Hero  Hp: %d  Speed: %d  Damage: %d  Poisons: %d  Dexterity: %d \n",
+        System.out.printf("Robber Hero  Hp: %d  Speed: %d  Damage: %f  Poisons: %d  Dexterity: %d \n",
                          this.hp, this.speed, this.damage, this.poisons, this.dexterity);
     }
 

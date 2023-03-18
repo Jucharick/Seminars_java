@@ -7,7 +7,7 @@ public class Sniper extends ShooterClass{
 
     @Override
     public void getInfo() {
-        System.out.printf("Sniper Hero  Hp: %d  Speed: %d  Damage: %d  Arrows: %d \n",
+        System.out.printf("Sniper Hero  Hp: %d  Speed: %d  Damage: %f  Arrows: %d \n",
                         this.hp, this.speed, this.damage, this.arrows);
     }
 
@@ -15,4 +15,5 @@ public class Sniper extends ShooterClass{
     public String toString() {
         return "Sniper";
     }
+
 }

@@ -1,5 +1,5 @@
 package Lesson_10.Units;
- 
+
 public class Magician extends MagClass {
 
     public Magician(String name) {
@@ -8,7 +8,7 @@ public class Magician extends MagClass {
 
     @Override
     public void getInfo() {
-        System.out.printf("Magician Hero  Hp: %d  Speed: %d  Damage: %d  Mana: %d Elixir: %d\n",
+        System.out.printf("Magician Hero  Hp: %d  Speed: %d  Damage: %f  Mana: %d Elixir: %d\n",
                          this.hp, this.speed, this.damage, this.mana, this.elixir);
     }
 

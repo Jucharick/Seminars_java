@@ -8,7 +8,7 @@ public class Spearman extends ShooterClass{
 
     @Override
     public void getInfo() {
-        System.out.printf("Spearman Hero  Hp: %d  Speed: %d  Damage: %d  Arrows: %d \n",
+        System.out.printf("Spearman Hero  Hp: %d  Speed: %d  Damage: %f  Arrows: %d \n",
                         this.hp, this.speed, this.damage, this.arrows);
     }
 

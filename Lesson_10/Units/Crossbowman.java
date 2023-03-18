@@ -1,5 +1,6 @@
 package Lesson_10.Units;
 
+
 public class Crossbowman extends ShooterClass{
      
     public Crossbowman (String name) {
@@ -8,7 +9,7 @@ public class Crossbowman extends ShooterClass{
 
     @Override
     public void getInfo() {
-        System.out.printf("Crossbowman Hero  Hp: %d  Speed: %d  Damage: %d  Arrows: %d \n",
+        System.out.printf("Crossbowman Hero  Hp: %d  Speed: %d  Damage: %f  Arrows: %d \n",
                         this.hp, this.speed, this.damage, this.arrows);
     }
 
