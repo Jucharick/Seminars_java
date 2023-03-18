@@ -11,8 +11,8 @@ public abstract class MagClass extends BaseHero{
         MagClass.r = new Random();
     }
 
-    public MagClass(int hp, int speed, float damage, int mana, int elixir, String name) {
-        super(hp, speed, damage, name);
+    public MagClass(int hp, int speed, float damage, int mana, int elixir, String name, int x, int y) {
+        super(hp, speed, damage, name, x, y);
         this.mana = mana;
         this.elixir = elixir;
     }

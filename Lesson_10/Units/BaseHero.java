@@ -2,7 +2,7 @@ package Lesson_10.Units;
 
 import java.util.ArrayList;
 
-public abstract class BaseHero  implements Unitinterface{ // собирается для всех объектов
+public abstract class BaseHero  implements Unitinterface { // собирается для всех объектов
     
     protected int hp; // protected видно только в пакете Units
     protected int speed;
@@ -10,17 +10,19 @@ public abstract class BaseHero  implements Unitinterface{ // собираетс�
     protected final String NAME; // константа, final - один раз ее установив изменить нельзя, она не изменяема
                                  // если поставить static, то имя у всех было бы одно
     protected String state;
+    protected Position position;
 
     public void getNAME(){
         System.out.println(NAME);
     }
 
-    public BaseHero(int hp, int speed, float damage, String name) {
+    public BaseHero(int hp, int speed, float damage, String name, int x, int y) {
         this.hp = hp;
         this.speed = speed;
         this.damage = damage;
         NAME = name;
         state = "Stand"; // стоит, ничего не делает
+        position = new Position(x, y);
     }
 
     public int getSpeed() {
@@ -50,9 +52,5 @@ public abstract class BaseHero  implements Unitinterface{ // собираетс�
             this.hp = 0;
         }
     }
-
-   public void attack(BaseHero unit) {
-        
-   }
 
 }

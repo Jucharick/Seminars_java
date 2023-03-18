@@ -29,45 +29,69 @@ public class Program {
 
         
 
-        ArrayList<BaseHero> units = new ArrayList<>();
+        ArrayList<BaseHero> units1 = new ArrayList<>();
+        ArrayList<BaseHero> units2 = new ArrayList<>();
 
+        int posXTeam1 = 1;
+        int posXTeam2 = 10;
 
         for (int i = 0; i < UNIT; i++) {
             switch(new Random().nextInt(7)) {
                 case 0:
-                    units.add(new Crossbowman(getName()));
+                    units1.add(new Crossbowman(getName(), posXTeam1, i+1));
                     break;
                 case 1:
-                    units.add(new Magician(getName()));
+                    units1.add(new Magician(getName(), posXTeam1, i+1));
                     break;
                 case 2:
-                    units.add(new Peasant(getName()));
+                    units1.add(new Peasant(getName(), posXTeam1, i+1));
                     break;
                 case 3:
-                    units.add(new Priest(getName()));
+                    units1.add(new Priest(getName(), posXTeam1, i+1));
                     break;
                 case 4:
-                    units.add(new Robber(getName()));
+                    units1.add(new Robber(getName(), posXTeam1, i+1));
                     break;
                 case 5:
-                    units.add(new Sniper(getName()));
+                    units1.add(new Sniper(getName(), posXTeam1, i+1));
                     break;
                 case 6:
-                    units.add(new Spearman(getName()));
+                    units1.add(new Spearman(getName(), posXTeam1, i+1));
+                    break;
+            }
+            switch(new Random().nextInt(7)) {
+                case 0:
+                    units2.add(new Crossbowman(getName(), posXTeam2, i+1));
+                    break;
+                case 1:
+                    units2.add(new Magician(getName(), posXTeam2, i+1));
+                    break;
+                case 2:
+                    units2.add(new Peasant(getName(), posXTeam2, i+1));
+                    break;
+                case 3:
+                    units2.add(new Priest(getName(), posXTeam2, i+1));
+                    break;
+                case 4:
+                    units2.add(new Robber(getName(), posXTeam2, i+1));
+                    break;
+                case 5:
+                    units2.add(new Sniper(getName(), posXTeam2, i+1));
+                    break;
+                case 6:
+                    units2.add(new Spearman(getName(), 10, i+1));
                     break;
             }
         }
 
 
-        // Имя - это хэш. У двух объектов не может быть одинакового имени.
+        // Имя - это хэш. У двух объектов не может быть одинакового имени.  
 
-    //     ArrayList<BaseHero> allTeam = new ArrayList<>();
-    //     allTeam.addAll(units1);
-    //     allTeam.addAll(units2);     
-
-        units.forEach(u -> u.step(units));
-        units.forEach(u -> u.getInfo());
-
+        // units1.forEach(u -> u.step(units2));
+        System.out.println("Team 1");
+        units1.forEach(u -> u.getInfo());
+        System.out.println("Team 2");
+        units2.forEach(u -> u.getInfo());
 
     }
 
