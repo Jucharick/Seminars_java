@@ -2,7 +2,7 @@ package Lesson_11;
 
 
 //import chars.HeroTeam;
-import Lesson_11.Units.Vector2;
+import Lesson_11.Units.Position;
 import java.util.Collections;
 
 public class ConsoleView {
@@ -31,7 +31,7 @@ public class ConsoleView {
 
         for (int i = 1; i <= Program.GANG_SIZE - 1; i++) {
             for (int j = 1; j <= Program.GANG_SIZE; j++) {
-                System.out.print(getChar(new Vector2(j, i)));
+                System.out.print(getChar(new Position(j, i)));
             }
             System.out.print("|");
             System.out.println(PrintInfo(npcIndex));
@@ -40,13 +40,13 @@ public class ConsoleView {
         }
 
         for (int j = 1; j <= Program.GANG_SIZE; j++) {
-            System.out.print(getChar(new Vector2(j, Program.GANG_SIZE)));
+            System.out.print(getChar(new Position(j, Program.GANG_SIZE)));
         }
         System.out.print("|");
         System.out.println(PrintInfo(npcIndex));
         System.out.println(ConsoleView.bottom10);
     }
-    private static String getChar(Vector2 position){
+    private static String getChar(Position position){
 
         String str = "| ";
         boolean alive = false;
