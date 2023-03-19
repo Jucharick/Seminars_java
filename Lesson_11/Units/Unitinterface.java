@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public interface Unitinterface {
     void step(ArrayList<BaseHero> team);
-    void getInfo();
+    String getInfo();
     String toString();
+    String getName();
 }

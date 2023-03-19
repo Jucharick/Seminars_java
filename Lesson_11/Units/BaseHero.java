@@ -3,9 +3,11 @@ package Lesson_11.Units;
 import java.util.ArrayList;
 
 public abstract class BaseHero  implements Unitinterface { // собирается для всех объектов
-    
-    protected int hp; // protected видно только в пакете Units
-    public int speed;
+
+    protected String type;
+    public int hp; // protected видно только в пакете Units
+    protected int maxHp;
+    protected int speed;
     protected float damage;
     protected final String NAME; // константа, final - один раз ее установив изменить нельзя, она не изменяема
                                  // если поставить static, то имя у всех было бы одно
@@ -16,8 +18,10 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
         System.out.println(NAME);
     }
 
-    public BaseHero(int hp, int speed, float damage, String name, int x, int y) {
+    public BaseHero(String type, int hp, int speed, float damage, String name, int x, int y) {
+        this.type = type;
         this.hp = hp;
+        this.maxHp = hp;
         this.speed = speed;
         this.damage = damage;
         NAME = name;
@@ -29,18 +33,44 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
         return speed;
     }
 
+    public int getHp() {
+        return hp;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public float getDamage() {
+        return damage;
+    }
+
+    public String getState() {
+        return state;
+    }
+
     @Override // @Override - аннотация
     public void step(ArrayList<BaseHero> team) {
-        System.out.println("Шаг!");// заглушка
+        System.out.println("");// заглушка
     }
 
     @Override
-    public void getInfo() {
-        System.out.println();
+    public String getInfo() {
+        String outStr = String.format("\t%-3s\t⚔️ %-3f\t\uD83D\t♥️%-3d%%\t ", type, damage,(int) hp * 100/maxHp);
+        return outStr;
     }
 
     @Override
         public String toString() {
+        return "Type: " + getInfo() + ", Damage: " + getDamage() + ", HP: " + getHp() + ", Speed: " + getSpeed();
+    }
+
+    @Override
+    public String getName() {
         return "";
     }
 

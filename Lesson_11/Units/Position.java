@@ -9,7 +9,7 @@ public class Position {
     }
 
     public boolean isEquals(Position opposit) {
-        if (opposit.y == y && opposit.x == x) return true;
+        if (opposit.y == this.y && opposit.x == this.x) return true;
         return false;
     }
 

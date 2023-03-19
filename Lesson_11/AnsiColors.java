@@ -12,7 +12,6 @@ public class AnsiColors {
     public  static final String ANSI_CYAN = "\u001B[36m";
     public  static final String ANSI_WHITE = "\u001B[37m";
 
-    // цвет конкретной ячейки
     public  static final String ANSI_BLACK_BACKGR = "\u001B[40m";
     public  static final String ANSI_RED_BACKGR = "\u001B[41m";
     public  static final String ANSI_GREEN_BACKGR = "\u001B[42m";

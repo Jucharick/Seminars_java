@@ -1,17 +1,15 @@
 package Lesson_11;
 
-
-//import chars.HeroTeam;
 import Lesson_11.Units.Position;
 import java.util.Collections;
 
 public class ConsoleView {
     private static int step = 0;
-    private static final String top10 = formatDiv("a") + String.join("", Collections.nCopies(9, formatDiv("-b"))) + formatDiv("-c"); // сборка таблицы - "крыша", верхние уголки
-    private static final String mid10 = formatDiv("d") + String.join("", Collections.nCopies(9, formatDiv("-e"))) + formatDiv("-f"); // сборка таблицы - "середина"
-    private static final String bottom10 = formatDiv("g") + String.join("", Collections.nCopies(9, formatDiv("-h"))) + formatDiv("-i"); // сборка таблицы - "низ", нижние уголки
+    private static final String top10 = formatDiv("a") + String.join("", Collections.nCopies(9, formatDiv("-b"))) + formatDiv("-c");
+    private static final String mid10 = formatDiv("d") + String.join("", Collections.nCopies(9, formatDiv("-e"))) + formatDiv("-f");
+    private static final String bottom10 = formatDiv("g") + String.join("", Collections.nCopies(9, formatDiv("-h"))) + formatDiv("-i");
     public static void view(){
-        if (step++ == 0) { // постинкримент - сначала сравнивается с нулем, а потом увеличивается
+        if (step++ == 0) {
             System.out.print(AnsiColors.ANSI_RED+"First step!"+AnsiColors.ANSI_RESET);
             System.out.print(AnsiColors.ANSI_GREEN +
                     String.join("", Collections.nCopies(20, formatDiv(" "))) + "Green Team" + AnsiColors.ANSI_RESET);
@@ -53,7 +51,7 @@ public class ConsoleView {
         for (int i = 0; i < Program.GANG_SIZE; i++) {
             if (Program.whiteSide.get(i).getPosition().isEquals(position))
             {
-                if(Program.whiteSide.get(i).health == 0)
+                if(Program.whiteSide.get(i).hp == 0)
                     str ="|"+AnsiColors.ANSI_RED+Program.whiteSide.get(i).getName().toUpperCase().charAt(0)+AnsiColors.ANSI_RESET;
                 else {
                     str ="|"+AnsiColors.ANSI_GREEN+Program.whiteSide.get(i).getName().toUpperCase().charAt(0)+AnsiColors.ANSI_RESET;
@@ -62,7 +60,7 @@ public class ConsoleView {
             }
             if (Program.darkSide.get(i).getPosition().isEquals(position) && !alive)
             {
-                if(Program.darkSide.get(i).health == 0)
+                if(Program.darkSide.get(i).hp == 0)
                     str ="|"+AnsiColors.ANSI_RED+ Program.darkSide.get(i).getName().toUpperCase().charAt(0)+AnsiColors.ANSI_RESET;
                 else str ="|"+AnsiColors.ANSI_BLUE+ Program.darkSide.get(i).getName().toUpperCase().charAt(0)+AnsiColors.ANSI_RESET;
             }
@@ -73,18 +71,15 @@ public class ConsoleView {
     {
         String str = "";
 
-        if(Program.whiteSide.get(npcIndex).health == 0)
+        if(Program.whiteSide.get(npcIndex).hp == 0)
             str +="     " + AnsiColors.ANSI_RED+Program.whiteSide.get(npcIndex).getInfo()+AnsiColors.ANSI_RESET;
         else str +="     " + AnsiColors.ANSI_GREEN+Program.whiteSide.get(npcIndex).getInfo()+AnsiColors.ANSI_RESET;
-        if(Program.darkSide.get(npcIndex).health == 0)
+        if(Program.darkSide.get(npcIndex).hp == 0)
             str +="     " + AnsiColors.ANSI_RED+Program.darkSide.get(npcIndex).getInfo()+AnsiColors.ANSI_RESET;
         else str +="     " + AnsiColors.ANSI_BLUE+Program.darkSide.get(npcIndex).getInfo()+AnsiColors.ANSI_RESET;
 
         return str;
     }
-
-
-    // таблица, символы - уголки, т-символы и т.д., которых нет на клавиатуре
     private static String formatDiv(String str){
         return str.replace('a', '\u250c')
                 .replace('b', '\u252c')

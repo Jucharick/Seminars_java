@@ -50,7 +50,7 @@ public class Program {
         int posXTeam1 = 1;
         int posXTeam2 = 10;
 
-        for (int i = 0; i < GANG_SIZE; i++) {
+        for (int i = 1; i < GANG_SIZE + 1; i++) {
             switch(new Random().nextInt(7)) {
                 case 0:
                     whiteSide.add(new Crossbowman(getName(), posXTeam1, i+1));
@@ -106,7 +106,7 @@ public class Program {
     private static void makeStep(){
         HashSet<Integer> speedRates = new HashSet<>();
         for (BaseHero units: allUnits) {
-            speedRates.add(units.speed);
+            speedRates.add(units.getSpeed());
         }
 
         ArrayList<Integer> speeds = new ArrayList<>(speedRates);
@@ -115,7 +115,7 @@ public class Program {
         for (int speed : speeds) {
             ArrayList<BaseHero>speedArray = new ArrayList<>();
             for (BaseHero unit: allUnits) {
-                if (unit.speed == speed) {
+                if (unit.getSpeed() == speed) {
                     speedArray.add(unit);
                 }
             }
@@ -123,13 +123,13 @@ public class Program {
             Collections.shuffle(speedArray);
 
             for (BaseHero hero : speedArray) {
-                if (hero.name.equals(darkSide)) {
+                if (hero.toString().equals(darkSide)) {
                     hero.step(whiteSide);
                 }
                 else {
                     hero.step(darkSide);
                 }
-                System.out.println("Персонаж " + hero.type + " со скоростью " + hero.speed + " сделал ход");
+                System.out.println("Персонаж " + hero.toString() + " со скоростью " + hero.getSpeed() + " сделал ход");
             }
         }
     }
