@@ -2,16 +2,16 @@ package Lesson_11;
 
 
 //import chars.HeroTeam;
-// import Units.Vector2;
+import Lesson_11.Units.Vector2;
 import java.util.Collections;
 
 public class ConsoleView {
     private static int step = 0;
-    private static final String top10 = formatDiv("a") + String.join("", Collections.nCopies(9, formatDiv("-b"))) + formatDiv("-c");
-    private static final String mid10 = formatDiv("d") + String.join("", Collections.nCopies(9, formatDiv("-e"))) + formatDiv("-f");
-    private static final String bottom10 = formatDiv("g") + String.join("", Collections.nCopies(9, formatDiv("-h"))) + formatDiv("-i");
+    private static final String top10 = formatDiv("a") + String.join("", Collections.nCopies(9, formatDiv("-b"))) + formatDiv("-c"); // сборка таблицы - "крыша", верхние уголки
+    private static final String mid10 = formatDiv("d") + String.join("", Collections.nCopies(9, formatDiv("-e"))) + formatDiv("-f"); // сборка таблицы - "середина"
+    private static final String bottom10 = formatDiv("g") + String.join("", Collections.nCopies(9, formatDiv("-h"))) + formatDiv("-i"); // сборка таблицы - "низ", нижние уголки
     public static void view(){
-        if (step++ == 0) {
+        if (step++ == 0) { // постинкримент - сначала сравнивается с нулем, а потом увеличивается
             System.out.print(AnsiColors.ANSI_RED+"First step!"+AnsiColors.ANSI_RESET);
             System.out.print(AnsiColors.ANSI_GREEN +
                     String.join("", Collections.nCopies(20, formatDiv(" "))) + "Green Team" + AnsiColors.ANSI_RESET);
@@ -82,6 +82,9 @@ public class ConsoleView {
 
         return str;
     }
+
+
+    // таблица, символы - уголки, т-символы и т.д., которых нет на клавиатуре
     private static String formatDiv(String str){
         return str.replace('a', '\u250c')
                 .replace('b', '\u252c')
