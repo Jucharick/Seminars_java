@@ -10,95 +10,130 @@
 package Lesson_11;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Scanner;
 
 import Lesson_11.Units.*;
 
 public class Program {
 
-    public static final int UNIT = 10;
+    public static final int GANG_SIZE = 10;
+
+    public static ArrayList<BaseHero> whiteSide;
+    public static ArrayList<BaseHero> darkSide;
+    public static ArrayList<BaseHero> allUnits;
+    
     public static void main(String[] args) {
-        // классы загружаются в память (в специальную область памяти и там просто лежат, занимают место) и потом используются для того, чтобы посчитать 
-        // сколько памяти нужно для объектов, собранных из этих классов
-        // static - публичный класс загружает виртуальная машина java и она не создает объект на базе класса Program, а она из класса Program 
-        // сразу вызывает метод main, и чтобы виртуальная машина java смогла его вызвать он должен быть статичным - это значит,
-        // что при загрузки этого метода адресс метода main сразу генерируется. И все методы, которые мы вызываем прям из класса, тоже должны быть 
-        // статичными и адрес сразу был.
+        init();
 
-        // если убрать static, то надо сначала создать объект класса
-
-        
-
-        ArrayList<BaseHero> units1 = new ArrayList<>();
-        ArrayList<BaseHero> units2 = new ArrayList<>();
-
-        int posXTeam1 = 1;
-        int posXTeam2 = 10;
-
-        for (int i = 0; i < UNIT; i++) {
-            switch(new Random().nextInt(7)) {
-                case 0:
-                    units1.add(new Crossbowman(getName(), posXTeam1, i+1));
-                    break;
-                case 1:
-                    units1.add(new Magician(getName(), posXTeam1, i+1));
-                    break;
-                case 2:
-                    units1.add(new Peasant(getName(), posXTeam1, i+1));
-                    break;
-                case 3:
-                    units1.add(new Priest(getName(), posXTeam1, i+1));
-                    break;
-                case 4:
-                    units1.add(new Robber(getName(), posXTeam1, i+1));
-                    break;
-                case 5:
-                    units1.add(new Sniper(getName(), posXTeam1, i+1));
-                    break;
-                case 6:
-                    units1.add(new Spearman(getName(), posXTeam1, i+1));
-                    break;
-            }
-            switch(new Random().nextInt(7)) {
-                case 0:
-                    units2.add(new Crossbowman(getName(), posXTeam2, i+1));
-                    break;
-                case 1:
-                    units2.add(new Magician(getName(), posXTeam2, i+1));
-                    break;
-                case 2:
-                    units2.add(new Peasant(getName(), posXTeam2, i+1));
-                    break;
-                case 3:
-                    units2.add(new Priest(getName(), posXTeam2, i+1));
-                    break;
-                case 4:
-                    units2.add(new Robber(getName(), posXTeam2, i+1));
-                    break;
-                case 5:
-                    units2.add(new Sniper(getName(), posXTeam2, i+1));
-                    break;
-                case 6:
-                    units2.add(new Spearman(getName(), 10, i+1));
-                    break;
-            }
+        Scanner scanner = new Scanner(System.in);
+        while (true){
+            ConsoleView.view();
+            makeStep();
+            scanner.nextLine();
         }
 
-
-        // Имя - это хэш. У двух объектов не может быть одинакового имени.  
-
-        // System.out.println("Team 1");
-        // units1.forEach(u -> u.getInfo());
-        // System.out.println("Team 2");
-        // units2.forEach(u -> u.getInfo());
-
-        units1.forEach(u -> u.step(units2));
-
     }
+
 
     private static String getName(){
         return Names.values()[new Random().nextInt(Names.values().length)].toString(); // Names.values() возвращает массив имен
     }
+
+    private static void init(){
+        whiteSide = new ArrayList<>();
+        darkSide = new ArrayList<>(); 
+        allUnits = new ArrayList<>(); 
+
+        int posXTeam1 = 1;
+        int posXTeam2 = 10;
+
+        for (int i = 0; i < GANG_SIZE; i++) {
+            switch(new Random().nextInt(7)) {
+                case 0:
+                    whiteSide.add(new Crossbowman(getName(), posXTeam1, i+1));
+                    break;
+                case 1:
+                    whiteSide.add(new Magician(getName(), posXTeam1, i+1));
+                    break;
+                case 2:
+                    whiteSide.add(new Peasant(getName(), posXTeam1, i+1));
+                    break;
+                case 3:
+                    whiteSide.add(new Priest(getName(), posXTeam1, i+1));
+                    break;
+                case 4:
+                    whiteSide.add(new Robber(getName(), posXTeam1, i+1));
+                    break;
+                case 5:
+                    whiteSide.add(new Sniper(getName(), posXTeam1, i+1));
+                    break;
+                case 6:
+                    whiteSide.add(new Spearman(getName(), posXTeam1, i+1));
+                    break;
+            }
+            switch(new Random().nextInt(7)) {
+                case 0:
+                    darkSide.add(new Crossbowman(getName(), posXTeam2, i+1));
+                    break;
+                case 1:
+                    darkSide.add(new Magician(getName(), posXTeam2, i+1));
+                    break;
+                case 2:
+                    darkSide.add(new Peasant(getName(), posXTeam2, i+1));
+                    break;
+                case 3:
+                    darkSide.add(new Priest(getName(), posXTeam2, i+1));
+                    break;
+                case 4:
+                    darkSide.add(new Robber(getName(), posXTeam2, i+1));
+                    break;
+                case 5:
+                    darkSide.add(new Sniper(getName(), posXTeam2, i+1));
+                    break;
+                case 6:
+                    darkSide.add(new Spearman(getName(), 10, i+1));
+                    break;
+            }
+        }
+
+        allUnits.addAll(whiteSide);
+        allUnits.addAll(darkSide);
+    }
+
+    private static void makeStep(){
+        HashSet<Integer> speedRates = new HashSet<>();
+        for (BaseHero units: allUnits) {
+            speedRates.add(units.speed);
+        }
+
+        ArrayList<Integer> speeds = new ArrayList<>(speedRates);
+        Collections.sort(speeds, Collections.reverseOrder(null));
+
+        for (int speed : speeds) {
+            ArrayList<BaseHero>speedArray = new ArrayList<>();
+            for (BaseHero unit: allUnits) {
+                if (unit.speed == speed) {
+                    speedArray.add(unit);
+                }
+            }
+
+            Collections.shuffle(speedArray);
+
+            for (BaseHero hero : speedArray) {
+                if (hero.name.equals(darkSide)) {
+                    hero.step(whiteSide);
+                }
+                else {
+                    hero.step(darkSide);
+                }
+                System.out.println("Персонаж " + hero.type + " со скоростью " + hero.speed + " сделал ход");
+            }
+        }
+    }
+
 }
 
 

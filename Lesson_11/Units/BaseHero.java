@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class BaseHero  implements Unitinterface { // собирается для всех объектов
     
     protected int hp; // protected видно только в пакете Units
-    protected int speed;
+    public int speed;
     protected float damage;
     protected final String NAME; // константа, final - один раз ее установив изменить нельзя, она не изменяема
                                  // если поставить static, то имя у всех было бы одно
