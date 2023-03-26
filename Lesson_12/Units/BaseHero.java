@@ -9,6 +9,7 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
     protected int maxHp;
     protected int speed;
     protected float damage;
+    protected float maxDamage;
     protected final String NAME; // константа, final - один раз ее установив изменить нельзя, она не изменяема
                                  // если поставить static, то имя у всех было бы одно
     protected String state;
@@ -18,12 +19,13 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
         System.out.println(NAME);
     }
 
-    public BaseHero(String type, int hp, int speed, float damage, String name, int x, int y) {
+    public BaseHero(String type, int hp, int speed, float damage, float maxDamage, String name, int x, int y) {
         this.type = type;
         this.hp = hp;
         this.maxHp = hp;
         this.speed = speed;
         this.damage = damage;
+        this.maxDamage = maxDamage;
         NAME = name;
         state = "Stand"; // стоит, ничего не делает
         position = new Position(x, y);
@@ -54,7 +56,7 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
     }
 
     @Override // @Override - аннотация
-    public void step(ArrayList<BaseHero> team) {
+    public void step(ArrayList<BaseHero> team, ArrayList<BaseHero> friends) {
         System.out.println("");// заглушка
     }
 
@@ -66,7 +68,7 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
 
     @Override
     public String getInfo() {
-        String outStr = String.format("\t t \t damage-3f \t helth-3d \t ", type, damage,(int) hp * 100/maxHp);
+        String outStr = String.format("\tt\tdamage-3f\thelth-3d\t", type, damage,(int) hp * 100/maxHp);
         return outStr;
     }
 
