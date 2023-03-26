@@ -31,13 +31,24 @@ public abstract class ShooterClass extends BaseHero {
                     target = unit;
                 }
             }
-            if(this.position.getDistance(target)>=2){
-                this.position.direction(target.position, friends);
-            }
-            else if(target.hp > 0){
+            if(target.hp > 0){
                 this.attack(friends);
                 this.arrows--;
             }
         }
+
+        for (BaseHero unit : friends) {
+            if (unit instanceof Peasant) {      //unit.getName().equals("Peasant")
+                this.arrows++;
+                break;
+            }
+        }
+    }
+
+
+    @Override
+    public String getInfo() {
+        String outStr = String.format("\t%-3s\t damage %-3f\t helth %-3d%%\t arrows %d ", type, damage, (int) hp * 100 / maxHp, arrows);
+        return outStr;
     }
 }
