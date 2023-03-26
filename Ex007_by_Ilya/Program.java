@@ -13,6 +13,7 @@ import Ex007_by_Ilya.Units.Peasant;
 import Ex007_by_Ilya.Units.Priest;
 import Ex007_by_Ilya.Units.Robber;
 import Ex007_by_Ilya.Units.SniperHero;
+import Ex007_by_Ilya.ConsoleView;
 
 public class Program {
     public static final int GANG_SIZE = 10;

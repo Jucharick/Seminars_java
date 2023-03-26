@@ -26,14 +26,12 @@ public abstract class ManClass extends BaseHero {
                     minDistance = this.position.getDistance(unit);
                     target = unit;
                 }
-
             }
-            // System.out.printf("%s выбрал %s\n", this.getClass().getSimpleName(), target.getClass().getSimpleName());
             if(this.position.getDistance(target)>=2){
                 this.position.direction(target.position, friends);
             }
             else if(target.hp > 0){
-                this.step(team, friends);;
+                this.attack(friends);
                 this.stamina--;
             }
         }

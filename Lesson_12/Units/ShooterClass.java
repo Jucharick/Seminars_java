@@ -19,13 +19,23 @@ public abstract class ShooterClass extends BaseHero {
     
     @Override
     public void step(ArrayList<BaseHero> team, ArrayList<BaseHero> friends)  {
-        if (this.arrows!= 0 && this.hp > 0){
 
-            damage = ShooterClass.r.nextFloat(this.damage, this.maxDamage);
-            BaseHero nearestUnit = minDistance(team);
-                
-            if (nearestUnit.hp > 0 && !nearestUnit.state.equals("die")) {
-                nearestUnit.loseDamage(damage);
+        if (this.arrows!= 0 && this.hp > 0) {
+    
+            BaseHero target = null;
+            double minDistance = Double.MAX_VALUE;
+
+            for (BaseHero unit : team) {
+                if(this.position.getDistance(unit)<minDistance && unit.hp>0){
+                    minDistance = this.position.getDistance(unit);
+                    target = unit;
+                }
+            }
+            if(this.position.getDistance(target)>=2){
+                this.position.direction(target.position, friends);
+            }
+            else if(target.hp > 0){
+                this.attack(friends);
                 this.arrows--;
             }
         }

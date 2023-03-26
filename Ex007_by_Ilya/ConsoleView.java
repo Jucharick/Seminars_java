@@ -1,8 +1,8 @@
 package Ex007_by_Ilya;
 
-import java.util.Collections;
 import Ex007_by_Ilya.Units.Position;
-import Ex007_by_Ilya.Program;
+
+import java.util.Collections;
 
 public class ConsoleView {
     private static int step = 0;

@@ -1,8 +1,14 @@
 package Lesson_12.Units;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class BaseHero  implements Unitinterface { // собирается для всех объектов
+
+    protected static Random r;
+    static {
+        BaseHero.r = new Random();
+    }
 
     protected String type;
     public int hp; // protected видно только в пакете Units
@@ -60,17 +66,18 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
         System.out.println("");// заглушка
     }
 
-    // @Override
-    // public String getInfo() {
-    //     String outStr = String.format("\t%-3s\t⚔️ %-3f\t\uD83D\t♥️%-3d%%\t ", type, damage,(int) hp * 100/maxHp);
-    //     return outStr;
-    // }
-
     @Override
     public String getInfo() {
-        String outStr = String.format("\tt\tdamage-3f\thelth-3d\t", type, damage,(int) hp * 100/maxHp);
+        String outStr = String.format("\t%-3s\t damage %-3f\t helth %-3d%%\t        ", type, damage,(int) hp * 100/maxHp);
         return outStr;
     }
+
+    // @Override
+    // public String getInfo() {
+    //     String outStr = String.format("\t%-3s\t⚔️ %-3d\t\uD83D\uDEE1 %-3d\t♥️%-3d%%\t☠️%-3d\t        " , 0,0 , armor,(int) hp * 100/maxHp, damage);
+    //     return outStr;
+
+    // }
 
     @Override
         public String toString() {
@@ -93,6 +100,15 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
             }
         }
         return nearestUnit;
+    }
+
+    public void attack(ArrayList<BaseHero> team) {
+        float damage = BaseHero.r.nextFloat(this.damage, this.maxDamage);
+        BaseHero nearestUnit = minDistance(team);
+            
+        if (nearestUnit.hp > 0 && !nearestUnit.state.equals("die")) {
+            nearestUnit.loseDamage(damage);
+        }
     }
        
     public void loseDamage(float damage) {

@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 
-import Lesson_11.Units.*;
+import Lesson_12.Units.*;
 
 public class Program {
 
@@ -124,10 +124,10 @@ public class Program {
 
             for (BaseHero hero : speedArray) {
                 if (hero.toString().equals(darkSide)) {
-                    hero.step(whiteSide);
+                    hero.step(whiteSide, darkSide);
                 }
                 else {
-                    hero.step(darkSide);
+                    hero.step(darkSide,whiteSide);
                 }
                 // System.out.println("Персонаж " + hero.toString() + " со скоростью " + hero.getSpeed() + " сделал ход");
             }
