@@ -129,7 +129,7 @@ public class Program {
                 else {
                     hero.step(darkSide);
                 }
-                //System.out.println("Персонаж " + hero.toString() + " со скоростью " + hero.getSpeed() + " сделал ход");
+                // System.out.println("Персонаж " + hero.toString() + " со скоростью " + hero.getSpeed() + " сделал ход");
             }
         }
     }
