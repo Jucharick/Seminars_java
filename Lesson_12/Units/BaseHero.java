@@ -3,7 +3,7 @@ package Lesson_12.Units;
 import java.util.ArrayList;
 import java.util.Random;
 
-public abstract class BaseHero  implements Unitinterface { // собирается для всех объектов
+public abstract class BaseHero implements Unitinterface { // собирается для всех объектов
 
     protected static Random r;
     static {
@@ -21,7 +21,7 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
     protected String state;
     protected Position position;
 
-    public void getNAME(){
+    public void getNAME() {
         System.out.println(NAME);
     }
 
@@ -68,19 +68,21 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
 
     @Override
     public String getInfo() {
-        String outStr = String.format("\t%-3s\t damage %-3f\t helth %-3d%%\t        ", type, damage,(int) hp * 100/maxHp);
+        String outStr = String.format("\t%-3s\t damage %-3f\t helth %-3d%%\t        ", type, damage,
+                (int) hp * 100 / maxHp);
         return outStr;
     }
 
     // @Override
     // public String getInfo() {
-    //     String outStr = String.format("\t%-3s\t⚔️ %-3d\t\uD83D\uDEE1 %-3d\t♥️%-3d%%\t☠️%-3d\t        " , 0,0 , armor,(int) hp * 100/maxHp, damage);
-    //     return outStr;
+    // String outStr = String.format("\t%-3s\t⚔️ %-3d\t\uD83D\uDEE1
+    // %-3d\t♥️%-3d%%\t☠️%-3d\t " , 0,0 , armor,(int) hp * 100/maxHp, damage);
+    // return outStr;
 
     // }
 
     @Override
-        public String toString() {
+    public String toString() {
         return "Type: " + getInfo() + ", Damage: " + getDamage() + ", HP: " + getHp() + ", Speed: " + getSpeed();
     }
 
@@ -89,7 +91,7 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
         return "";
     }
 
-    public BaseHero minDistance (ArrayList<BaseHero> team){
+    public BaseHero minDistance(ArrayList<BaseHero> team) {
         BaseHero nearestUnit = team.get(0);
         double minDist = position.getDistance(team.get(0));
         for (BaseHero unit : team) {
@@ -105,17 +107,16 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
     public void attack(ArrayList<BaseHero> team) {
         float damage = BaseHero.r.nextFloat(this.damage, this.maxDamage);
         BaseHero nearestUnit = minDistance(team);
-            
+
         if (nearestUnit.hp > 0 && !nearestUnit.state.equals("die")) {
             nearestUnit.loseDamage(damage);
         }
     }
-       
+
     public void loseDamage(float damage) {
         if (this.hp - damage >= 0) {
             this.hp -= damage;
-        }
-        else {
+        } else {
             this.hp = 0;
             this.state = "die";
         }

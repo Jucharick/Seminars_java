@@ -24,12 +24,12 @@ public class Program {
     public static ArrayList<BaseHero> whiteSide;
     public static ArrayList<BaseHero> darkSide;
     public static ArrayList<BaseHero> allUnits;
-    
+
     public static void main(String[] args) {
         init();
 
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true) {
             ConsoleView.view();
             makeStep();
             scanner.nextLine();
@@ -37,21 +37,21 @@ public class Program {
 
     }
 
-
-    private static String getName(){
-        return Names.values()[new Random().nextInt(Names.values().length)].toString(); // Names.values() возвращает массив имен
+    private static String getName() {
+        return Names.values()[new Random().nextInt(Names.values().length)].toString(); // Names.values() возвращает
+                                                                                       // массив имен
     }
 
-    private static void init(){
+    private static void init() {
         whiteSide = new ArrayList<>();
-        darkSide = new ArrayList<>(); 
-        allUnits = new ArrayList<>(); 
+        darkSide = new ArrayList<>();
+        allUnits = new ArrayList<>();
 
         int posXTeam1 = 1;
         int posXTeam2 = 10;
 
         for (int i = 1; i < GANG_SIZE + 1; i++) {
-            switch(new Random().nextInt(7)) {
+            switch (new Random().nextInt(7)) {
                 case 0:
                     whiteSide.add(new Crossbowman(getName(), posXTeam1, i));
                     break;
@@ -74,7 +74,7 @@ public class Program {
                     whiteSide.add(new Spearman(getName(), posXTeam1, i));
                     break;
             }
-            switch(new Random().nextInt(7)) {
+            switch (new Random().nextInt(7)) {
                 case 0:
                     darkSide.add(new Crossbowman(getName(), posXTeam2, i));
                     break;
@@ -103,39 +103,18 @@ public class Program {
         allUnits.addAll(darkSide);
     }
 
-    private static void makeStep(){
-        HashSet<Integer> speedRates = new HashSet<>();
-        for (BaseHero units: allUnits) {
-            speedRates.add(units.getSpeed());
-        }
+    private static void makeStep() {
+        ArrayList<BaseHero> list = new ArrayList<>();
 
-        ArrayList<Integer> speeds = new ArrayList<>(speedRates);
-        Collections.sort(speeds, Collections.reverseOrder(null));
+        list.addAll(darkSide);
+        list.addAll(whiteSide);
 
-        for (int speed : speeds) {
-            ArrayList<BaseHero>speedArray = new ArrayList<>();
-            for (BaseHero unit: allUnits) {
-                if (unit.getSpeed() == speed) {
-                    speedArray.add(unit);
-                }
-            }
-
-            Collections.shuffle(speedArray);
-
-            for (BaseHero hero : speedArray) {
-                if (hero.toString().equals(darkSide)) {
-                    hero.step(whiteSide, darkSide);
-                }
-                else {
-                    hero.step(darkSide,whiteSide);
-                }
-                // System.out.println("Персонаж " + hero.toString() + " со скоростью " + hero.getSpeed() + " сделал ход");
-            }
+        for (BaseHero unit : list) {
+            if (darkSide.contains(unit)) {
+                unit.step(whiteSide, darkSide);
+            } else
+                unit.step(darkSide, whiteSide);
         }
     }
 
 }
-
-
-
-

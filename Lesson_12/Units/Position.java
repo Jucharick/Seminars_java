@@ -17,8 +17,8 @@ public class Position {
             return false;
     }
 
-    public double getDistance (BaseHero unit) {
-        return (Math.sqrt(Math.pow(this.x-unit.position.x, 2)) + Math.pow(this.y-unit.position.y, 2));
+    public double getDistance(BaseHero unit) {
+        return (Math.sqrt(Math.pow(this.x - unit.position.x, 2)) + Math.pow(this.y - unit.position.y, 2));
     }
 
     public void direction(Position position, ArrayList<BaseHero> friends) {
@@ -33,10 +33,10 @@ public class Position {
                 this.x -= 1;
                 return;
             }
-            if (this.y <= position.y && !temp[2]&& this.y + 1 != 11) {
+            if (this.y <= position.y && !temp[2] && this.y + 1 != 11) {
                 this.y += 1;
                 return;
-            } else if (this.y >= position.y && !temp[3]&& this.y - 1 != 0) {
+            } else if (this.y >= position.y && !temp[3] && this.y - 1 != 0) {
                 this.y -= 1;
                 return;
             }
@@ -48,10 +48,10 @@ public class Position {
                 this.y -= 1;
                 return;
             }
-            if (this.x <= position.x && !temp[0]&& this.x + 1 != 11) {
+            if (this.x <= position.x && !temp[0] && this.x + 1 != 11) {
                 this.x += 1;
                 return;
-            } else if (this.x >= position.x && !temp[1]&& this.x - 1 != 0) {
+            } else if (this.x >= position.x && !temp[1] && this.x - 1 != 0) {
                 this.x -= 1;
                 return;
             }
