@@ -1,4 +1,4 @@
-package Lesson_12.Units;
+package Ex007_by_Ilya.Units;
 
 import java.util.ArrayList;
 
@@ -10,15 +10,17 @@ public class Position {
         this.y = y;
     }
 
+    public double getDistance(BaseHero unit) {
+
+        return Math.sqrt(Math.pow(x - unit.position.x, 2) + Math.pow(y - unit.position.y, 2));
+
+    }
+
     public boolean isEquals(Position position) {
         if ((position.x == this.x) & (position.y == this.y))
             return true;
         else
             return false;
-    }
-
-    public double getDistance (BaseHero unit) {
-        return (Math.sqrt(Math.pow(this.x-unit.position.x, 2)) + Math.pow(this.y-unit.position.y, 2));
     }
 
     public void direction(Position position, ArrayList<BaseHero> friends) {
@@ -80,5 +82,4 @@ public class Position {
         }
         return temp;
     }
-
 }
