@@ -58,9 +58,15 @@ public abstract class BaseHero  implements Unitinterface { // собираетс
         System.out.println("");// заглушка
     }
 
+    // @Override
+    // public String getInfo() {
+    //     String outStr = String.format("\t%-3s\t⚔️ %-3f\t\uD83D\t♥️%-3d%%\t ", type, damage,(int) hp * 100/maxHp);
+    //     return outStr;
+    // }
+
     @Override
     public String getInfo() {
-        String outStr = String.format("\t%-3s\t⚔️ %-3f\t\uD83D\t♥️%-3d%%\t ", type, damage,(int) hp * 100/maxHp);
+        String outStr = String.format("\t t \t damage-3f \t helth-3d \t ", type, damage,(int) hp * 100/maxHp);
         return outStr;
     }
 

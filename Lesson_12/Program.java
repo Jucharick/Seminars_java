@@ -53,48 +53,48 @@ public class Program {
         for (int i = 1; i < GANG_SIZE + 1; i++) {
             switch(new Random().nextInt(7)) {
                 case 0:
-                    whiteSide.add(new Crossbowman(getName(), posXTeam1, i+1));
+                    whiteSide.add(new Crossbowman(getName(), posXTeam1, i));
                     break;
                 case 1:
-                    whiteSide.add(new Magician(getName(), posXTeam1, i+1));
+                    whiteSide.add(new Magician(getName(), posXTeam1, i));
                     break;
                 case 2:
-                    whiteSide.add(new Peasant(getName(), posXTeam1, i+1));
+                    whiteSide.add(new Peasant(getName(), posXTeam1, i));
                     break;
                 case 3:
-                    whiteSide.add(new Priest(getName(), posXTeam1, i+1));
+                    whiteSide.add(new Priest(getName(), posXTeam1, i));
                     break;
                 case 4:
-                    whiteSide.add(new Robber(getName(), posXTeam1, i+1));
+                    whiteSide.add(new Robber(getName(), posXTeam1, i));
                     break;
                 case 5:
-                    whiteSide.add(new Sniper(getName(), posXTeam1, i+1));
+                    whiteSide.add(new Sniper(getName(), posXTeam1, i));
                     break;
                 case 6:
-                    whiteSide.add(new Spearman(getName(), posXTeam1, i+1));
+                    whiteSide.add(new Spearman(getName(), posXTeam1, i));
                     break;
             }
             switch(new Random().nextInt(7)) {
                 case 0:
-                    darkSide.add(new Crossbowman(getName(), posXTeam2, i+1));
+                    darkSide.add(new Crossbowman(getName(), posXTeam2, i));
                     break;
                 case 1:
-                    darkSide.add(new Magician(getName(), posXTeam2, i+1));
+                    darkSide.add(new Magician(getName(), posXTeam2, i));
                     break;
                 case 2:
-                    darkSide.add(new Peasant(getName(), posXTeam2, i+1));
+                    darkSide.add(new Peasant(getName(), posXTeam2, i));
                     break;
                 case 3:
-                    darkSide.add(new Priest(getName(), posXTeam2, i+1));
+                    darkSide.add(new Priest(getName(), posXTeam2, i));
                     break;
                 case 4:
-                    darkSide.add(new Robber(getName(), posXTeam2, i+1));
+                    darkSide.add(new Robber(getName(), posXTeam2, i));
                     break;
                 case 5:
-                    darkSide.add(new Sniper(getName(), posXTeam2, i+1));
+                    darkSide.add(new Sniper(getName(), posXTeam2, i));
                     break;
                 case 6:
-                    darkSide.add(new Spearman(getName(), 10, i+1));
+                    darkSide.add(new Spearman(getName(), 10, i));
                     break;
             }
         }
